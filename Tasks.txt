@@ -1,0 +1,13 @@
+Unit tests
+Image Docker in pipeline
+configurar pipeline validator
+    -unit tests
+    -linter
+    -
+
+docker image
+push - docker registry
+
+Unit Tests
+Create Docker Image from the pipelines
+Configure the main branch to run a build validator every time a new pull request is created
