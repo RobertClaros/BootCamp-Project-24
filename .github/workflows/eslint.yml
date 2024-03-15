@@ -63,7 +63,9 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: your-docker-registry/robertapp:latest
+          tags: |
+            your-docker-registry/robertapp:latest
+            new-repo:robert
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
