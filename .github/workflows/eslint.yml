@@ -65,5 +65,5 @@ jobs:
           push: true
           tags: your-docker-registry/robertapp:latest
         env:
-          DOCKER_USERNAME: robertclaros
-          DOCKER_PASSWORD: dckr_pat_54rC08CLY7qDeJfCZkiXjSu4EmI
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
