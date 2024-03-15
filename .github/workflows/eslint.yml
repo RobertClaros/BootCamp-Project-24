@@ -74,14 +74,22 @@ jobs:
 
   push-to-docker:
     runs-on: ubuntu-latest
-    needs: [test-and-coverage]  # Espera a que el trabajo de pruebas y cobertura haya finalizado
+    needs: [test-and-coverage]
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Push Docker image
-        run: docker push robertclaros/project_app:tagname
+      - name: Build Docker image
+        run: docker build -t robertclaros:project_app .
         env:
-          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_TOKEN }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_USERNAME }}
+            DOCKER_BUILDKIT: 1
+      
+      - name: Tag Docker image
+        run: docker tag robertclaros:project_app robertclaros:appimage
+             
+      - name: Login to Docker Hub
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+        
+      - name: Push Docker image
+        run: docker push robertclaros:appimage
