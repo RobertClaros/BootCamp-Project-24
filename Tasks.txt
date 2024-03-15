@@ -13,7 +13,7 @@ Create Docker Image from the pipelines
 Configure the main branch to run a build validator every time a new pull request is created
 
 docker pull
-
+11
 coverage testing - uses regex--1
 docker upload *
 docker pull
