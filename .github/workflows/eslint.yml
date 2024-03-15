@@ -71,3 +71,17 @@ jobs:
         with:
           name: coverage-report
           path: coverage
+
+  push-to-docker:
+    runs-on: ubuntu-latest
+    needs: [test-and-coverage]  # Espera a que el trabajo de pruebas y cobertura haya finalizado
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Push Docker image
+        run: docker push robertclaros/project_app:tagname
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_TOKEN }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_USERNAME }}
