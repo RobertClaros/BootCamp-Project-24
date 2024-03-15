@@ -16,5 +16,5 @@ docker pull
 
 coverage testing - uses regex
 
-docker upload
+docker upload *
 docker pull
