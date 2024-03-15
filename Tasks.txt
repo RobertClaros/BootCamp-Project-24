@@ -11,3 +11,5 @@ push - docker registry
 Unit Tests
 Create Docker Image from the pipelines
 Configure the main branch to run a build validator every time a new pull request is created
+
+docker
