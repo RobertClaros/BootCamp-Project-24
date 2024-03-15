@@ -14,7 +14,6 @@ Configure the main branch to run a build validator every time a new pull request
 
 docker pull
 
-coverage testing - uses regex--
-
+coverage testing - uses regex--1
 docker upload *
 docker pull
