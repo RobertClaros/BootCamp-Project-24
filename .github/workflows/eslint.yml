@@ -92,4 +92,4 @@ jobs:
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
         
       - name: Push Docker image
-        run: docker push robertclaros:appimage
+        run: docker push robertclaros/project_app:appimage
