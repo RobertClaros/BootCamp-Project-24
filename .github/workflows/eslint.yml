@@ -22,7 +22,9 @@ jobs:
         run: npm install
 
       - name: Run ESLint
-        run: npx eslint --ext .ts .
+        run: |
+          chmod +x node_modules/.bin/eslint
+          ./node_modules/.bin/eslint --ext .ts .
 
 
   build:
