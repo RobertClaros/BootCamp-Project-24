@@ -83,7 +83,8 @@ jobs:
       # No necesitas construir la imagen aquí, ya que la has construido localmente
 
       - name: Tag Docker image
-        run: docker tag robertclaros:project_app robertclaros/project_app:appimage
+        run: docker tag robertclaros/project_app:appimage robertclaros/project_app:latest
+
              
       - name: Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
