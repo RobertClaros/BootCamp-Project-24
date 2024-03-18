@@ -52,7 +52,7 @@ jobs:
 
       - name: Calculate coverage percentage
         id: calculate-coverage
-        run: echo "::set-output name=coverage-percent::$(awk -F'[:]' '/^Statements/ {print $2}' coverage/lcov.info)'
+        run: echo "::set-output name=coverage-percent::$(awk -F'[:]' '/^Statements/ {print $2}' coverage/lcov.info)"
 
   push-to-docker-compose:
     runs-on: ubuntu-latest
