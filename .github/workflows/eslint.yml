@@ -74,8 +74,7 @@ jobs:
 
       - name: Calculate coverage percentage
         id: calculate-coverage
-        run: echo "::set-output name=coverage-percent::$(awk 'BEGIN { print ${{ (24 / 34) * 100 }} }')"
-
+        run: echo "::set-output name=coverage-percent::$(echo 'scale=2; 24 / 34 * 100' | bc)"
   push-to-docker:
     runs-on: ubuntu-latest
     needs: [test-and-coverage]
