@@ -1,0 +1,22 @@
+FROM nikolaik/python-nodejs:latest
+
+WORKDIR /usr/
+
+COPY package*.json ./
+RUN npm install
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends graphviz \
+  && rm -rf /var/lib/apt/lists/* \
+  && pip install --no-cache-dir pyparsing pydot diagrams
+
+COPY index.js .
+COPY input.txt .
+COPY temp.py .
+COPY web_service.png .
+COPY public/index.html /usr/public/index.html
+
+
+EXPOSE 3000
+
+CMD ["node", "index.js"]
